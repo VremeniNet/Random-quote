@@ -1,6 +1,7 @@
 body {
 	font-family: Arial, sans-serif;
-	background-color: #f0f0f0;
+	background-color: #252525;
+	color: #fff;
 }
 
 .container {
@@ -12,7 +13,7 @@ body {
 button {
 	padding: 10px 20px;
 	font-size: 16px;
-	background-color: #007bff;
+	background-color: #003cff;
 	color: #fff;
 	border: none;
 	cursor: pointer;
@@ -20,5 +21,14 @@ button {
 }
 
 button:hover {
-	background-color: #0056b3;
+	background-color: #000fb3;
+}
+
+#quote {
+	font-style: italic;
+}
+
+#quote::after,
+#quote::before {
+	content: '"';
 }

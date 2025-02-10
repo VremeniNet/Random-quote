@@ -5,6 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Random Quotes</title>
 		<link rel="stylesheet" href="styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
 	</head>
 	<body>
 		<div class="container">
@@ -12,9 +16,10 @@
 			<p id="quote">Click the button to get a random quote</p>
 			<p id="author"></p>
 			<button id="generate-btn">Generate Quote</button>
-			<button id="add-favorite">Make Favorite</button>
+			<!-- <span class="star-icon" id="add-favorite"></span> -->
+			<i id="add-favorite" class="far fa-star star-icon"></i>
 		</div>
 		<div class="favorites-container" id="favorites-container"></div>
-		<script src="script.js" type="module"></script>
+		<script src="index.js" type="module"></script>
 	</body>
 </html>

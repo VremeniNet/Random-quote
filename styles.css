@@ -24,10 +24,6 @@ button:hover {
 	background-color: #000fb3;
 }
 
-#add-favorite {
-	display: none;
-}
-
 #quote {
 	font-style: italic;
 }
@@ -49,7 +45,7 @@ button:hover {
 	margin: 10px;
 	border-radius: 8px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	width: 250px;
+	width: 22%;
 	color: #252525;
 }
 

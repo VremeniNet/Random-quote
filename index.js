@@ -4,25 +4,38 @@ import {
 	removeFavoriteCard,
 	toggleFavoriteIcon,
 	showFavoriteCard,
+	showFavoriteBtn,
+	hideFavoriteBtn,
 } from './src/favoritesHandler.js'
 import { generateRandomInt } from './src/utils.js'
 
-const quoteElement = document.getElementById('quote')
-const quoteAuthor = document.getElementById('author')
 const genrateBtn = document.getElementById('generate-btn')
 const makeFavoriteBtn = document.getElementById('add-favorite')
 const favoritesContainer = document.getElementById('favorites-container')
 
 let currentQuoteIndex
 
-function generateRandomQuote() {
-	const randomIndex = generateRandomInt(quotes.length)
-	const { quote, author, isFavorite } = quotes[randomIndex]
-	currentQuoteIndex = randomIndex
-	quoteElement.textContent = quote
+hideFavoriteBtn(makeFavoriteBtn)
+
+function displayQuote(quote) {
+	const { text, author, isFavorite } = quote
+	const quoteElement = document.getElementById('quote')
+	const quoteAuthor = document.getElementById('author')
+	quoteElement.textContent = text
 	quoteAuthor.textContent = author
+	showFavoriteBtn(makeFavoriteBtn)
 	toggleFavoriteIcon(isFavorite, makeFavoriteBtn)
-	makeFavoriteBtn.style.display = 'inline-block'
+}
+
+function choseRandomQuote(quotes) {
+	const randomIndex = generateRandomInt(quotes.length)
+	currentQuoteIndex = randomIndex
+	return quotes[randomIndex]
+}
+
+function generateAndDisplayRandomQuote() {
+	const randomQuote = choseRandomQuote(quotes)
+	displayQuote(randomQuote)
 }
 
 function makeFavorite() {
@@ -31,17 +44,13 @@ function makeFavorite() {
 	toggleFavoriteIcon(currentQuote.isFavorite, makeFavoriteBtn)
 
 	if (currentQuote.isFavorite) {
-		showFavoriteCard(
-			currentQuote.quote,
-			currentQuote.author,
-			favoritesContainer
-		)
+		showFavoriteCard(currentQuote.text, currentQuote.author, favoritesContainer)
 	} else {
-		removeFavoriteCard(currentQuote.quote)
+		removeFavoriteCard(currentQuote.text)
 	}
 }
 
-genrateBtn.addEventListener('click', generateRandomQuote)
+genrateBtn.addEventListener('click', generateAndDisplayRandomQuote)
 makeFavoriteBtn.addEventListener('click', makeFavorite)
 
-generateRandomQuote()
+choseRandomQuote()

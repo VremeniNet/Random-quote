@@ -48,7 +48,9 @@ function makeFavorite() {
 			currentQuote.id,
 			currentQuote.text,
 			currentQuote.author,
-			favoritesContainer
+			currentQuote.isFavorite,
+			favoritesContainer,
+			makeFavoriteBtn
 		)
 	} else {
 		removeFavoriteCard(currentQuote.id)

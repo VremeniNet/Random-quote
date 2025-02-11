@@ -18,15 +18,30 @@ function removeFavoriteCard(id) {
 	}
 }
 
-function showFavoriteCard(id, text, author, container) {
+function showFavoriteCard(
+	id,
+	text,
+	author,
+	isFavorite,
+	container,
+	favoriteBtn
+) {
 	const favoriteCard = document.createElement('div')
 	favoriteCard.classList.add('favorite-card')
 	favoriteCard.dataset.quoteId = id
 	favoriteCard.innerHTML = `
 		<p>${text}</p>
 		<p class = 'author'>${author}</p>
+		<button class = 'btn btn-delete'>Remove from favorite</button>
 		`
 	container.appendChild(favoriteCard)
+
+	const removeBtn = favoriteCard.querySelector('.btn-delete')
+	removeBtn.addEventListener('click', () => {
+		isFavorite = false
+		removeFavoriteCard(id)
+		toggleFavoriteIcon(isFavorite, favoriteBtn)
+	})
 }
 
 export {

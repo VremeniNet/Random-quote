@@ -44,13 +44,16 @@ function makeFavorite() {
 	toggleFavoriteIcon(currentQuote.isFavorite, makeFavoriteBtn)
 
 	if (currentQuote.isFavorite) {
-		showFavoriteCard(currentQuote.text, currentQuote.author, favoritesContainer)
+		showFavoriteCard(
+			currentQuote.id,
+			currentQuote.text,
+			currentQuote.author,
+			favoritesContainer
+		)
 	} else {
-		removeFavoriteCard(currentQuote.text)
+		removeFavoriteCard(currentQuote.id)
 	}
 }
 
 genrateBtn.addEventListener('click', generateAndDisplayRandomQuote)
 makeFavoriteBtn.addEventListener('click', makeFavorite)
-
-choseRandomQuote()
